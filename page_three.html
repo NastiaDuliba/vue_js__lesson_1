@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="css/fonts.css">
+   <link rel="stylesheet" href="css/reset.css">
+   <link rel="stylesheet" href="css/style.css">
+   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+   <script src="js/script.js"></script>
+   <title>Lesson 2</title>
+</head>
+<body>
+   <div class="wrapper">
+      <main class="main__container">
+         <h2>завдання № 3</h2>
+         <div id="app">
+            <div class="task-3">
+               <div class="task-3__value ">
+                  <div>
+                     <label >
+                        Перше значення діапазону
+                        <input  type="number" v-model="firstValue">
+                     </label>
+                  </div>
+              <div>
+               <label >
+                  Друге значення діапазону
+                  <input  type="number" v-model="secondValue">
+               </label>
+              </div>   
+                 
+                  
+               </div>
+               <div class="result">
+                  <button type="button" @click="randomValue()" > Результат</button>
+               </div>
+               <div>
+                  <span>{{result}}</span>
+               </div>
+            </div>
+
+
+         </div>
+   <script>
+//Задача 3. Задано початок та кінець діапазону. При натисканні на кнопку випадковим чином генерувати значення з вказаного діапазону та відображати його.
+const {createApp} = Vue
+
+ createApp({
+  data(){
+     return{ 
+      firstValue:null,
+      secondValue:null,
+      result: null,
+    
+     }
+  
+
+  
+  },
+
+ methods:{
+  randomValue(){
+   return this.result= Math.floor(Math.random()*(this.secondValue-this.firstValue+1)+this.firstValue);
+   
+  
+  
+},
+ },
+
+}).mount('#app')
+   
+   </script>
+
+      </main>
+   
+
+</div>
+</body>
+</html>

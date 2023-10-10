@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="css/fonts.css">
+   <link rel="stylesheet" href="css/reset.css">
+   <link rel="stylesheet" href="css/style.css">
+   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+   <script src="js/script.js"></script>
+   <title>Lesson 2</title>
+</head>
+<body>
+   <div class="wrapper">
+      <main class="main__container">
+         <h2>завдання № 4</h2>
+         <div id="app">
+            <div>
+               Сумма на рахунку : <span :style="{color:color}">{{maneyFix}}</span>
+            </div>
+            <div>
+               <label>
+                  Зарахування грошей
+               <input type="number" v-model="creditedFunds">
+            </label>
+            <button type="button" @click="getCreditedFunds()">поповнити</button>
+            </div>
+            <div>
+               <label>
+                   Зняття грошей
+               <input type="number" v-model="withdrawalMoney">
+            </label>
+            <button type="button" @click="getWithdrawalMoney()">Зняття грошей</button>
+            </div>
+            <div>
+               Доллари: <span :style="{color:colorDollar}">{{ dollarSum}}</span>
+            </div>
+            <div>
+             Євро: <span > {{euroSum}} </span>
+            </div>
+            <div> 3%: <span>{{interest}}</span></div>
+
+         </div>
+
+   <script>
+  
+//  Задача 4. “Рахунок у банку”
+//Вимоги:
+//1) Спочатку сума дорівнює 0грн. Змінити суму у гривнях можна або зарахуванням на рахунок, або зняттям.
+//2) Сума автоматично переводиться у долари та євро (фіксований курс задається у data).
+//3) можливість зарахувати суму (контролювати, щоб не була від’ємною)
+//4) можливість зняти (щоб не можна зняти більше ніж є на рахунку)
+//5) при виконанні зняття і зарахування коштів вираховувати 3% від суми (відображати кількість відсотків автоматично)
+
+//При зміні суми :
+//- якщо було зняття, то суму відоражати червоним
+//- якщо було зарахування, то суму відображати зеленим
+//Якщо сума валюти менша за 100 то відображати червоним кольором, інакше - зеленим
+
+
+
+  const {createApp} = Vue
+
+ createApp({
+  data(){
+     return{ 
+      maney:0,
+      dollarRate: 38,
+      euroRate: 40,
+      creditedFunds:0,
+      withdrawalMoney:0,
+      color:null,
+      interest: 0,
+    
+    
+     }
+  
+
+  
+  },
+
+ methods:{
+   getCreditedFunds(){
+      if (this.creditedFunds) {
+       this.maney= (this.maney+this.creditedFunds)-((this.maney+this.creditedFunds)/100*3)
+       this.interest +=  parseFloat((this.maney *0.03).toFixed(2))
+      
+         if (this.creditedFunds<100) {
+            this.color = 'red'
+            
+         }else this.color ='green'
+         
+         
+      }
+   },
+   getWithdrawalMoney(){
+      if (this.withdrawalMoney < this.maney) {
+        this.maney =  (this.maney-this.withdrawalMoney)-((this.maney-this.withdrawalMoney)/100*3)
+         this.color ='red'
+         this.interest +=  parseFloat((this.maney *0.03).toFixed(2))
+         
+      }
+     
+   }
+
+ 
+ },
+ computed:{
+   maneyFix:{
+      get(){
+       return (this.maney).toFixed(2)
+      }
+   },
+   dollarSum:{
+      get(){
+         return (this.maney/this.dollarRate).toFixed(2)
+      }
+   },
+   euroSum:{
+      get(){
+         return (this.maney / this.euroRate).toFixed(2)
+      }
+   }
+ }
+
+}).mount('#app')
+   
+   </script>
+
+      </main>
+   
+
+</div>
+</body>
+</html>

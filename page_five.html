@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="css/fonts.css">
+   <link rel="stylesheet" href="css/reset.css">
+   <link rel="stylesheet" href="css/style.css">
+   <script src="js/script.js"></script>
+   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+   <title>Lesson 2</title>
+</head>
+<body>
+   <div class="wrapper">
+      <main class="main__container">
+         <h2>завдання № 4</h2>
+
+         <div id="app">
+            <div>
+               <label >
+                  Login
+                  <input type="text" v-model.lazy="login">
+               </label>
+            </div>
+            <div>
+               <label >
+                Password
+                  <input type="password" v-model.lazy="pasword">
+               </label>
+            </div>
+            <div>
+               <button type="button" @click=" getSelection()">GO</button>
+            </div>
+            <div><span>{{message}}</span></div>
+         </div>
+   <script>
+//Задача 5. Додаток містить масив об’єктів (логін, пароль) --  інсуючі логіни і паролі. Користувач вводить логін і пароль, а програма повідомляє чи може користувач бути авторизованим (чи є він одним з масиву).
+const {createApp} = Vue
+const users=[
+   {
+      liginUser:'Vika', paswordUser:12345
+   },
+   {
+      liginUser:'Nastia', paswordUser: 23444
+   },
+   {
+      liginUser:'Dima', paswordUser: 32455
+   },
+]
+
+ createApp({
+  data(){
+     return{ 
+      pasword: null,
+      login:null,
+      message: null,
+     
+     }
+  
+
+  
+  },
+
+ methods:{
+   getSelection(){
+    for (const us of users) {
+      if (us.liginUser === this.login && us.paswordUser === this.paswords) {
+        this.message =  'Користувач знайдений'
+      }else this.message = 'Error'
+      
+    }
+   }
+
+ 
+ },
+
+}).mount('#app')
+   
+    
+   </script>
+
+      </main>
+   
+
+</div>
+</body>
+</html>

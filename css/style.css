@@ -1,0 +1,214 @@
+body {
+  font-family: "Larsseit", sans-serif;
+  background: rgb(0, 64, 93);
+  color: #fff;
+}
+.wrapper {
+  width: 100%;
+  overflow: hidden;
+  min-height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  z-index: 20;
+  padding: 30px 15px;
+}
+.wrapper > main {
+  flex-grow: 1;
+}
+[class*="__container"] {
+  max-width: 100%;
+}
+
+main h2 {
+  padding: 50px 0;
+  text-transform: uppercase;
+}
+table,
+th,
+td {
+  border: 1px solid black;
+  padding: 3px;
+}
+td,
+th {
+  padding: 10px;
+}
+table {
+  display: inline-block;
+}
+
+.shop-receip {
+  border: 2px solid #212121;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.shop-receip__header {
+  text-align: center;
+}
+.shop-receip__header h1 {
+  text-align: center;
+  padding: 10px;
+}
+.shop-receip__header p {
+  text-align: center;
+  padding: 5px;
+}
+.shop-receip__products {
+  display: flex;
+}
+.products-shop-receip {
+}
+.products-shop-receip__price {
+}
+.quantityshop-receip__column {
+  display: flex;
+  border: 2px solid #212121;
+  padding: 10px;
+  justify-content: space-between;
+  gap: 20px;
+}
+.shop-receip__item_01 {
+  border: 2px solid #212121;
+  padding: 10px;
+}
+.quantityshop-receip__numeric {
+  border: 2px solid #212121;
+  padding: 10px;
+}
+.shop-receip__quantity {
+  border: 2px solid #212121;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.quantityshop-receip {
+}
+.quantityshop-receip__item_01 {
+  border: 2px solid #212121;
+  padding: 10px;
+  margin-bottom: 10px;
+  min-height: 40px;
+}
+.quantityshop-receip__item_02 {
+  border: 2px solid #212121;
+  padding: 10px;
+  margin-bottom: 10px;
+
+  min-height: 40px;
+}
+.quantityshop-receip__item_03 {
+  border: 2px solid #212121;
+  padding: 10px;
+  min-height: 40px;
+}
+.shop-receip__total {
+  padding: 10px;
+  line-height: 1.5;
+  font-size: 24px;
+}
+
+.wrapper {
+}
+.main {
+}
+.main__container {
+}
+.task_hover:hover {
+  background: #3d0000;
+  color: #fff;
+  transition: all 0.3s ease 0s;
+}
+.task_hover {
+  border: 3px solid #960569;
+  padding: 20px;
+  min-height: 200px;
+  margin: 10px;
+}
+.main__task {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.task {
+}
+
+h3 {
+  text-align: center;
+  padding: 10px;
+}
+p {
+  font-size: 24px;
+  line-height: 1.5;
+}
+@media (max-width: 700px) {
+  .main__task {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  p {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+}
+
+/*================================================================================*/
+
+/*lessons1*/
+
+.img_4 {
+  width: 350px;
+  height: 200px;
+}
+.task__four {
+  max-height: 300px;
+  overflow: auto;
+}
+
+.result {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.value {
+  display: block;
+  margin-bottom: 20px;
+}
+.main-img {
+  max-width: 300px;
+  height: 200px;
+}
+.main-img img {
+  max-width: 100%;
+  max-width: 300px;
+  height: 200px;
+}
+.main__container {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.main__mount-inp {
+  min-width: 300px;
+  margin-bottom: 10px;
+}
+
+.main__recommendation {
+  margin-bottom: 10px;
+}
+div {
+  margin-bottom: 20px;
+}
+button {
+  padding: 10px;
+  border: 1px solid black;
+}
+button:hover {
+  background-color: #3d0000;
+  transition: all 0.3s;
+}
+button:active {
+  background-color: #d11c1c;
+  transition: all 0.3s;
+}
